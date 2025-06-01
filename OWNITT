@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OWNITT Ltd. - Pure Water, Trusted Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(90deg, #4a6cf7 0%, #8a3cc8 100%);
+        }
+        
+        .logo-gradient {
+            background: linear-gradient(90deg, #4a6cf7 0%, #8a3cc8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #4a6cf7 0%, #8a3cc8 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-input {
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #4a6cf7;
+            outline: none;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Button Animation */
+        .btn-animate {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-animate:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-animate:hover:after {
+            transform: translateX(0);
+        }
+        
+        /* Floating button */
+        .float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            transition: transform 0.3s ease;
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto py-4 px-4 lg:px-0">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="mr-3">
+                        <div class="text-4xl font-bold logo-gradient">OWNITT</div>
+                        <div class="text-gray-500 text-sm">a step towards purity</div>
+                    </div>
+                </div>
+                
+                <nav class="flex flex-wrap justify-center">
+                    <a href="#home" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="#about" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600">About Us</a>
+                    <a href="#services" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600">Services</a>
+                    <a href="#products" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600">Products</a>
+                    <a href="#contact" class="nav-link px-4 py-2 text-gray-700 hover:text-blue-600">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative py-16 bg-blue-50">
+        <div class="container mx-auto px-4 lg:px-0">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Pure Water, Trusted Service – <span class="logo-gradient">OWNITT Ltd.</span></h1>
+                    <p class="text-gray-600 text-lg mb-8">Providing premium RO water purification systems with reliable installation, repair, and maintenance services.</p>
+                    
+                    <div class="flex flex-wrap">
+                        <button onclick="openModal('serviceModal')" class="btn-animate gradient-bg text-white font-medium px-6 py-3 rounded-lg shadow-md mr-4 mb-4 md:mb-0">
+                            <i class="fas fa-tools mr-2"></i> Get Serviced
+                        </button>
+                        <button onclick="openModal('quotationModal')" class="btn-animate bg-white text-blue-600 border border-blue-600 font-medium px-6 py-3 rounded-lg shadow-md">
+                            <i class="fas fa-file-invoice-dollar mr-2"></i> Get Quotation
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <img src="https://page1.genspark.site/v1/base64_upload/4055da516f63edc3bca4100fe83690bf" alt="OWNITT Water Purifiers" class="rounded-lg shadow-xl max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4 lg:px-0">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">About <span class="logo-gradient">OWNITT Ltd.</span></h2>
+                <div class="w-24 h-1 gradient-bg mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Delivering reliable water purification solutions with a focus on quality, service, and customer satisfaction.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Quality Products</h3>
+                    <p class="text-gray-600">Our purifiers meet the highest standards of quality and performance, ensuring safe and pure water for your family.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Dedicated Support</h3>
+                    <p class="text-gray-600">Our team is committed to providing exceptional service and support for all your water purification needs.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Fast Service</h3>
+                    <p class="text-gray-600">We ensure prompt installation and maintenance services to minimize any disruption to your daily water needs.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                        <img src="https://page1.genspark.site/v1/base64_upload/c798351cf6ee9eb9ca37599e06510b47" alt="OWNITT Contact Card" class="rounded-lg shadow-lg max-w-full h-auto">
+                    </div>
+                    
+                    <div class="w-full md:w-1/2 md:pl-12">
+                        <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                        <p class="text-gray-600 mb-6">At OWNITT Ltd., we're dedicated to bringing clean and safe drinking water to every household in India. We believe that access to pure water is a fundamental right, and our mission is to provide innovative, reliable, and affordable water purification solutions.</p>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Our Commitment</h3>
+                        <p class="text-gray-600 mb-6">We are committed to delivering exceptional quality products, outstanding customer service, and sustainable water solutions that improve the health and wellbeing of our customers.</p>
+                        
+                        <div class="flex items-center">
+                            <div class="gradient-bg rounded-full p-2 mr-4">
+                                <i class="fas fa-user-tie text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Ayush Shahu</h4>
+                                <p class="text-gray-600 text-sm">Founder & CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 lg:px-0">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Our <span class="logo-gradient">Services</span></h2>
+                <div class="w-24 h-1 gradient-bg mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Comprehensive RO water purifier services to keep your system running efficiently.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="service-card bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">RO Installation</h3>
+                    <p class="text-gray-600 mb-4">Professional installation of your new water purifier system with proper setup and testing.</p>
+                    <button onclick="openModal('serviceModal')" class="text-blue-600 font-medium hover:underline">Request Service</button>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-wrench text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">RO Repair & Maintenance</h3>
+                    <p class="text-gray-600 mb-4">Troubleshooting and fixing issues to ensure optimal performance of your water purifier.</p>
+                    <button onclick="openModal('serviceModal')" class="text-blue-600 font-medium hover:underline">Request Service</button>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clipboard-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AMC (Annual Maintenance)</h3>
+                    <p class="text-gray-600 mb-4">Regular service plans to keep your water purifier in top condition year-round.</p>
+                    <button onclick="openModal('serviceModal')" class="text-blue-600 font-medium hover:underline">Request Service</button>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">RO Spare Parts Sales</h3>
+                    <p class="text-gray-600 mb-4">Genuine replacement parts for all major water purifier brands and models.</p>
+                    <button onclick="openModal('quotationModal')" class="text-blue-600 font-medium hover:underline">Get Quote</button>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-8 rounded-lg shadow-md">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="w-full md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                        <h3 class="text-2xl font-bold mb-4">Why Choose Our Services?</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span>Experienced technicians with specialized training</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span>Prompt response time and efficient service</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span>Genuine parts and quality workmanship guarantee</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span>Transparent pricing with no hidden charges</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <span>24/7 customer support and service</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="openModal('serviceModal')" class="btn-animate gradient-bg text-white font-medium px-6 py-3 rounded-lg shadow-md mt-6">
+                            <i class="fas fa-headset mr-2"></i> Contact Service Team
+                        </button>
+                    </div>
+                    
+                    <div class="w-full md:w-1/3">
+                        <img src="https://page1.genspark.site/v1/base64_upload/0cc765b94b62b5734780f3f97956de19" alt="Water Purifier Service" class="rounded-lg shadow-md max-w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-16">
+        <div class="container mx-auto px-4 lg:px-0">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Our <span class="logo-gradient">Products</span></h2>
+                <div class="w-24 h-1 gradient-bg mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Discover our range of premium water purifiers designed for optimal performance and safety.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- PRIDE Series -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://page1.genspark.site/v1/base64_upload/95167a5fa93df19bddac7cf1cbafeec7" alt="PRIDE Series Water Purifiers" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white py-1 px-3 rounded-full text-sm font-medium">
+                            New Launch
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">PRIDE Series</h3>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="ml-2 text-gray-600 text-sm">Premium Quality</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-700 mb-2">Key Features:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Superb Multi Color Variants</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Unique LED Water Level Display</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Premium Water Purification</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Multiple Filtration Stages</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-gray-500">Price Range</span>
+                                <p class="font-bold text-xl">₹15,000 - ₹20,000</p>
+                            </div>
+                            <button onclick="openModal('quotationModal')" class="btn-animate gradient-bg text-white font-medium px-4 py-2 rounded-lg">Get Quotation</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SKY Series -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://page1.genspark.site/v1/base64_upload/f33656f7c1e611f72b048fa61e41f33c" alt="SKY Series Water Purifiers" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-purple-600 text-white py-1 px-3 rounded-full text-sm font-medium">
+                            Premium Model
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">SKY - Midnight Black</h3>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star-half-alt text-yellow-400"></i>
+                            <span class="ml-2 text-gray-600 text-sm">Premium Quality</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-700 mb-2">Specifications:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Table top and Wall mount</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>9 Ltr storage capacity</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Float, Clamp & Tap included</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Front assembly for easy access</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-gray-500">Price Range</span>
+                                <p class="font-bold text-xl">₹12,000 - ₹15,000</p>
+                            </div>
+                            <button onclick="openModal('quotationModal')" class="btn-animate gradient-bg text-white font-medium px-4 py-2 rounded-lg">Get Quotation</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CURVV Series -->
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://page1.genspark.site/v1/base64_upload/c8f33caac1c9f4baaa2679a3710a603a" alt="CURVV Series Water Purifiers" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4 bg-green-600 text-white py-1 px-3 rounded-full text-sm font-medium">
+                            Best Seller
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">CURVV - White RO</h3>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="ml-2 text-gray-600 text-sm">High Quality</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-700 mb-2">Key Features:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Modern Sleek Design</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Enhanced Filtration System</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Smart Digital Interface</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <span>Compact Wall-Mountable Design</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-gray-500">Price Range</span>
+                                <p class="font-bold text-xl">₹18,000 - ₹22,000</p>
+                            </div>
+                            <button onclick="openModal('quotationModal')" class="btn-animate gradient-bg text-white font-medium px-4 py-2 rounded-lg">Get Quotation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Products -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold mb-8 text-center">Featured Products</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- OLIVAR STORM -->
+                    <div class="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="w-full md:w-1/2">
+                            <img src="https://page1.genspark.site/v1/base64_upload/7eda7d0a410f2ba37542c10af2e39a8f" alt="OLIVAR STORM Water Purifier" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 p-6">
+                            <div class="mb-2">
+                                <span class="text-sm text-white bg-blue-600 px-3 py-1 rounded-full">OLIVAR STORM</span>
+                            </div>
+                            
+                            <h4 class="text-xl font-bold mb-3">Pure Water for Your Family</h4>
+                            <p class="text-gray-600 mb-4">Specially designed with advanced purification technology to ensure the highest water quality for your family's health and wellbeing.</p>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-semibold text-gray-700">Benefits:</h5>
+                                <ul class="space-y-1 mt-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Advanced Filtration</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Essential Minerals Retained</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Elegant Design</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <button onclick="openModal('quotationModal')" class="btn-animate gradient-bg text-white font-medium px-4 py-2 rounded-lg">Request Quote</button>
+                        </div>
+                    </div>
+                    
+                    <!-- AQUASTIC GRETA -->
+                    <div class="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="w-full md:w-1/2">
+                            <img src="https://page1.genspark.site/v1/base64_upload/0cc765b94b62b5734780f3f97956de19" alt="AQUASTIC GRETA Water Purifier" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 p-6">
+                            <div class="mb-2">
+                                <span class="text-sm text-white bg-orange-600 px-3 py-1 rounded-full">AQUASTIC GRETA</span>
+                            </div>
+                            
+                            <h4 class="text-xl font-bold mb-3">Premium Water Purification</h4>
+                            <p class="text-gray-600 mb-4">Featuring an LED indicator display and elegant design with 2-year warranty for reliable performance.</p>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-semibold text-gray-700">Features:</h5>
+                                <ul class="space-y-1 mt-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>LED Water Quality Display</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>2 Year Complete Warranty</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        <span>Modern Black & Copper Design</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <button onclick="openModal('quotationModal')" class="btn-animate gradient-bg text-white font-medium px-4 py-2 rounded-lg">Request Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 gradient-bg">
+        <div class="container mx-auto px-4 lg:px-0 text-center text-white">
+            <h2 class="text-3xl font-bold mb-6">Ready for Pure, Safe Drinking Water?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Contact us today to learn more about our water purification solutions and services.</p>
+            
+            <div class="flex flex-wrap justify-center">
+                <button onclick="openModal('serviceModal')" class="btn-animate bg-white text-blue-600 font-medium px-6 py-3 rounded-lg shadow-md mr-4 mb-4 md:mb-0">
+                    <i class="fas fa-tools mr-2"></i> Request Service
+                </button>
+                <button onclick="openModal('quotationModal')" class="btn-animate border-2 border-white text-white font-medium px-6 py-3 rounded-lg shadow-md">
+                    <i class="fas fa-file-invoice-dollar mr-2"></i> Get Quotation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 lg:px-0">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Contact <span class="logo-gradient">Us</span></h2>
+                <div class="w-24 h-1 gradient-bg mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Get in touch with our team for any inquiries, services, or product information.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="gradient-bg rounded-full p-2 mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Address</h4>
+                                    <p class="text-gray-600">naka no. 4, infront of gurukrupa provision, kalamna, nagpur 440026</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="gradient-bg rounded-full p-2 mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-600">+91 8767716824</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="gradient-bg rounded-full p-2 mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-600">ownittshopping@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="gradient-bg rounded-full p-2 mr-4 flex-shrink-0">
+                                    <i class="fas fa-globe text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Website</h4>
+                                    <p class="text-gray-600">www.ownittshopping.in</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mt-8 mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/profile.php?id=61576635941343" target="_blank" class="gradient-bg rounded-full p-2 text-white hover:opacity-80 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/ownitt_ro_systems" target="_blank" class="gradient-bg rounded-full p-2 text-white hover:opacity-80 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="gradient-bg rounded-full p-2 text-white hover:opacity-80 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="gradient-bg rounded-full p-2 text-white hover:opacity-80 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+                        <h3 class="text-xl font-bold mb-4">Business Hours</h3>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Monday - Saturday</span>
+                                <span class="font-semibold">9:00 AM - 8:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Sunday</span>
+                                <span class="font-semibold">10:00 AM - 4:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-2">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Send Us a Message</h3>
+                        
+                        <form id="contactForm" onsubmit="submitForm(event, 'contact')">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                                    <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                                <textarea id="message" name="message" rows="5" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-animate gradient-bg text-white font-medium px-6 py-3 rounded-lg shadow-md w-full">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 lg:px-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="mb-6">
+                        <div class="text-3xl font-bold text-white mb-1">OWNITT</div>
+                        <div class="text-gray-400 text-sm">a step towards purity</div>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6">Providing premium water purification solutions for homes and businesses across India.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61576635941343" target="_blank" class="bg-gray-700 hover:bg-blue-600 transition rounded-full p-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ownitt_ro_systems" target="_blank" class="bg-gray-700 hover:bg-pink-600 transition rounded-full p-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-blue-400 transition rounded-full p-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-red-600 transition rounded-full p-2">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition">Products</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">RO Installation</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">RO Repair & Maintenance</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Annual Maintenance Contract</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">RO Spare Parts</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Water Quality Testing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>naka no. 4, infront of gurukrupa provision, kalamna, nagpur 440026</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-phone-alt mt-1 mr-3"></i>
+                            <span>+91 8767716824</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>ownittshopping@gmail.com</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-globe mt-1 mr-3"></i>
+                            <span>www.ownittshopping.in</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p>© 2025 OWNITT Ltd. All rights reserved.</p>
+                    <div class="mt-4 md:mt-0">
+                        <p>Founder & CEO: Ayush Shahu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Enquiry Button -->
+    <div class="float-btn">
+        <button onclick="openModal('enquiryModal')" class="gradient-bg text-white font-semibold p-3 rounded-full shadow-lg flex items-center">
+            <i class="fas fa-comment-dots mr-2"></i> Enquiry
+        </button>
+    </div>
+    
+    <!-- Modals -->
+    
+    <!-- Service Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content bg-white p-6 rounded-lg shadow-xl w-full max-w-md mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Request Service</h3>
+                <button onclick="closeModal('serviceModal')" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="serviceForm" onsubmit="submitForm(event, 'service')">
+                <div class="mb-4">
+                    <label for="service-name" class="block text-gray-700 mb-2">Your Name</label>
+                    <input type="text" id="service-name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="service-phone" class="block text-gray-700 mb-2">Mobile Number</label>
+                    <input type="tel" id="service-phone" name="phone" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="service-address" class="block text-gray-700 mb-2">Full Address</label>
+                    <textarea id="service-address" name="address" rows="3" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="service-type" class="block text-gray-700 mb-2">Service Type</label>
+                    <select id="service-type" name="service-type" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                        <option value="">Select Service Type</option>
+                        <option value="Installation">Installation</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="AMC">Annual Maintenance Contract</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-animate gradient-bg text-white font-medium px-6 py-3 rounded-lg shadow-md w-full">
+                    <i class="fas fa-paper-plane mr-2"></i> Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Quotation Modal -->
+    <div id="quotationModal" class="modal">
+        <div class="modal-content bg-white p-6 rounded-lg shadow-xl w-full max-w-md mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Get Quotation</h3>
+                <button onclick="closeModal('quotationModal')" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="quotationForm" onsubmit="submitForm(event, 'quotation')">
+                <div class="mb-4">
+                    <label for="quotation-name" class="block text-gray-700 mb-2">Your Name</label>
+                    <input type="text" id="quotation-name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="quotation-phone" class="block text-gray-700 mb-2">Mobile Number</label>
+                    <input type="tel" id="quotation-phone" name="phone" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="quotation-address" class="block text-gray-700 mb-2">Full Address</label>
+                    <textarea id="quotation-address" name="address" rows="3" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="product-interest" class="block text-gray-700 mb-2">Product Interest</label>
+                    <select id="product-interest" name="product" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                        <option value="">Select Product</option>
+                        <option value="PRIDE Series">PRIDE Series</option>
+                        <option value="SKY - Midnight Black">SKY - Midnight Black</option>
+                        <option value="CURVV - White">CURVV - White</option>
+                        <option value="OLIVAR STORM">OLIVAR STORM</option>
+                        <option value="AQUASTIC GRETA">AQUASTIC GRETA</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-animate gradient-bg text-white font-medium px-6 py-3 rounded-lg shadow-md w-full">
+                    <i class="fas fa-paper-plane mr-2"></i> Request Quotation
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Enquiry Modal -->
+    <div id="enquiryModal" class="modal">
+        <div class="modal-content bg-white p-6 rounded-lg shadow-xl w-full max-w-md mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Send Enquiry</h3>
+                <button onclick="closeModal('enquiryModal')" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="enquiryForm" onsubmit="submitForm(event, 'enquiry')">
+                <div class="mb-4">
+                    <label for="enquiry-name" class="block text-gray-700 mb-2">Your Name</label>
+                    <input type="text" id="enquiry-name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="enquiry-contact" class="block text-gray-700 mb-2">Mobile Number or Email</label>
+                    <input type="text" id="enquiry-contact" name="contact" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="enquiry-message" class="block text-gray-700 mb-2">Your Message</label>
+                    <textarea id="enquiry-message" name="message" rows="4" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-animate gradient-bg text-white font-medium px-6 py-3 rounded-lg shadow-md w-full">
+                    <i class="fas fa-paper-plane mr-2"></i> Send Enquiry
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content bg-white p-6 rounded-lg shadow-xl w-full max-w-md mx-4 text-center">
+            <div class="mb-6">
+                <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto">
+                    <i class="fas fa-check-circle text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mt-4">Submission Successful!</h3>
+                <p class="text-gray-600 mt-2">Thank you for reaching out. We'll get back to you shortly.</p>
+            </div>
+            
+            <button onclick="closeModal('successModal')" class="btn-animate gradient-bg text-white font-medium px-6 py-3 rounded-lg shadow-md w-full">
+                Close
+            </button>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Form Submission
+        function submitForm(event, formType) {
+            event.preventDefault();
+            
+            // Create email data based on form type
+            let subject = '';
+            let body = '';
+            
+            if (formType === 'service') {
+                const name = document.getElementById('service-name').value;
+                const phone = document.getElementById('service-phone').value;
+                const address = document.getElementById('service-address').value;
+                const serviceType = document.getElementById('service-type').value;
+                
+                subject = 'Service Request – OWNITT Ltd.';
+                body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AAddress: ${address}%0D%0AService Type: ${serviceType}`;
+                closeModal('serviceModal');
+            } 
+            else if (formType === 'quotation') {
+                const name = document.getElementById('quotation-name').value;
+                const phone = document.getElementById('quotation-phone').value;
+                const address = document.getElementById('quotation-address').value;
+                const product = document.getElementById('product-interest').value;
+                
+                subject = 'New RO Quotation Request – OWNITT Ltd.';
+                body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AAddress: ${address}%0D%0AProduct Interest: ${product}`;
+                closeModal('quotationModal');
+            }
+            else if (formType === 'enquiry') {
+                const name = document.getElementById('enquiry-name').value;
+                const contact = document.getElementById('enquiry-contact').value;
+                const message = document.getElementById('enquiry-message').value;
+                
+                subject = 'General Enquiry – OWNITT Ltd.';
+                body = `Name: ${name}%0D%0AContact: ${contact}%0D%0AMessage: ${message}`;
+                closeModal('enquiryModal');
+            }
+            else if (formType === 'contact') {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                subject = `Contact Form: ${subject}`;
+                body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AMessage: ${message}`;
+            }
+            
+            // In a real implementation, this would send data to a server
+            // For demo purposes, we'll show a success modal
+            openModal('successModal');
+            
+            // Reset form
+            event.target.reset();
+            
+            // In a real implementation, you would send an email:
+            // window.location.href = `mailto:ownittshopping@gmail.com?subject=${subject}&body=${body}`;
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
